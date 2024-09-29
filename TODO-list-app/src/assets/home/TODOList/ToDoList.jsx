@@ -26,35 +26,49 @@ const ToDoList = () => {
 
   return (
     <>
-        <div className="container">
-            <h1>TODO List</h1>
-            <div>
-              <input 
+    <h1 className="text-center">TODO List</h1>
+        <div className="container w-50 bg-primary-subtle border border-primary-subtle rounded-3 pt-3 pb-3">  
+            <div className="d-flex justify-content-start align-items-center mb-4 mt-3">
+              <input
+              className="form-control" 
               type="text" 
               placeholder="Escribe tu tarea" 
               value={nuevaTarea}
               onChange={manejarInput}
               />
-              <button onClick={agregarTarea}>
-                Agregar Tarea
+              <button 
+              className="btn btn-primary mx-2"
+              onClick={agregarTarea}>
+                Agregar
               </button>
             </div>
             
-            <ol>
+            
+            <ul className="list-group">
               {tareas.map((tarea, index) => {
                 return(
-                  <li key={index}>
-                  <span>{tarea}</span>
-                  <button
-                  onClick={() => borrarTarea(index)}
-                  >Borrar
-                  </button>
-                </li>
+                  <>
+                  <div className="d-flex justify-content-evenly text-center rounded">
+                    <li 
+                    className="list-group-item w-75 mb-4"
+                    key={index}>
+                    {tarea}
+                    </li>
+                    <button
+                    className="btn btn-danger mb-4"
+                    onClick={() => borrarTarea(index)}
+                    >🚮
+                    </button>
+                  </div>
+                    
+                  </>
+                
                 )
                 
                 
+                
               })}
-            </ol>
+            </ul>
            
         </div>
     </>

@@ -7,8 +7,12 @@ const auth = getAuth(appFirebase)
 const Home = ({correoUsuario}) => {
   return (
     <>
-    <div className="text-center">Bienvenido {correoUsuario} <button onClick={() => signOut(auth)} className="btn btn-primary">Log out</button></div>
-    <ToDoList />
+    <div className="container">
+      <div className="text-center mt-5 mb-5">Bienvenido {correoUsuario}</div>
+      <ToDoList />
+      <button onClick={() => signOut(auth)} className="btn btn-primary">Log out</button>
+    </div>
+    
 
     </>
     
